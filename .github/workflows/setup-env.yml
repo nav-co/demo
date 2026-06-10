@@ -19,8 +19,12 @@ jobs:
 
       - name: Setup Ruby (Bitrise)
         run: |
-          asdf install ruby
-          #bundle install
+          RUBY_VERSION=$(cat .ruby-version)
+          asdf list ruby
+          if ! asdf list ruby | grep -q "$RUBY_VERSION"; then
+            asdf install ruby
+          fi
+          asdf global ruby $RUBY_VERSION
 
       - name: Print Ruby version
         run: ruby --version
