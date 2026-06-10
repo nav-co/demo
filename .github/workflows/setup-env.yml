@@ -20,7 +20,7 @@ jobs:
       - name: Setup Ruby (Bitrise)
         run: |
           asdf install ruby
-          bundle install
+          #bundle install
 
       - name: Print Ruby version
         run: ruby --version
